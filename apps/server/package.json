@@ -19,7 +19,8 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "logger": "*",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "notion-client": "^6.16.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",

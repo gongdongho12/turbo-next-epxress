@@ -1,5 +1,8 @@
 import { log } from "logger";
 import { CounterButton, Link } from "ui";
+import { NotionRenderer } from 'react-notion-x'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const metadata = {
   title: "Store | Kitchen Sink",
@@ -7,6 +10,21 @@ export const metadata = {
 
 export default function Store(): JSX.Element {
   log("Hey! This is the Store page.");
+  const [recordMap, setRecordMap] = useState<any>(undefined)
+
+  useEffect(() => {
+    axios.get('localhost:5000/notion')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.error(error);
+      })
+      .finally(function () {
+        
+      });
+  }, [])
+  
 
   return (
     <div className="container">
@@ -25,6 +43,7 @@ export default function Store(): JSX.Element {
           Next.js
         </Link>
       </p>
+      <NotionRenderer recordMap={recordMap} fullPage={true} darkMode={false} />
     </div>
   );
 }
